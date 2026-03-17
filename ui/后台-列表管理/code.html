@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>用户管理后台 - Admin User Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#165DFF",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1523",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "system-ui", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 lg:px-12 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary text-white p-1.5 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">用户管理后台</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold text-sm" href="#">仪表盘</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm transition-colors" href="#">用户管理</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm transition-colors" href="#">角色权限</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm transition-colors" href="#">系统设置</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:border-slate-700 mx-1"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold">管理员</p>
+<p class="text-xs text-slate-500">admin@example.com</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Modern professional 3D avatar of an admin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Fbu_cd2l17BufjJa_anCvjELRTuYBXdglq5hYlTl3Q-0w1aHH9xCL2TUnK6LtGEKtfsfZKZFeIcrN34qNbOdR6KfTc52cqRh2on-lw7Zg9G-15teow73qmEio9rj_YuUYdFPW4lOj-0mzeZI2cFiM68vkDJpUmHy5UDO-Go6Fw58xPYjXF0w-oTOa1TXx8AeIMAfDTaKcDibdPOUs9OHdchHtdEVmhe6Nm5ewWNvO4Mkh8hjNefhpI5eLxKAFzeIqjf4nosFzhg"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-8">
+<!-- Header & Search -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="space-y-1">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">用户列表</h2>
+<p class="text-slate-500 dark:text-slate-400">管理和查看所有已注册的用户信息，包含账户状态与登录审计。</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2.5 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span>新增用户</span>
+</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-200">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+<span>导出报表</span>
+</button>
+</div>
+</div>
+<!-- Filters Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 mb-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2">
+<label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">搜索用户</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm" placeholder="搜索 UUID、邮箱或昵称..." type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">注册日期</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">calendar_today</span>
+<select class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm appearance-none">
+<option>全部时间</option>
+<option>最近 7 天</option>
+<option>最近 30 天</option>
+<option>本季度</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">登录方式</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">login</span>
+<select class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm appearance-none">
+<option>全部方式</option>
+<option>邮箱密码</option>
+<option>微信登录</option>
+<option>GitHub</option>
+<option>手机验证码</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">UUID</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">用户信息</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">注册时间</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">最后登录 IP</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">状态</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500 dark:text-slate-400">8f7d2e1a</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Stylized pixel art avatar for Zhang San" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrnxXTJvgZ7h13486iSqfhlqSiujtJ071TxZhfRBIENI2XG0XbUcjPYjUR-MudIatL6rwpx_fkYVLfVM6tx-TcibtTZOySi8t7UlNvTfLjuvhk7_Mhiav6NvISFFAwCqW6eKDhOA8rZpqx4LQrFnd2vGtXbKi-QxtnUWT4dzxgeOiESe3IxWBxh0Gi9x1H1IJMrqDEwT7VRPPoJbVVKkU20Q_LUTilZhjHERtgWU7-C3P6NYd7M6fkeDu7S96CbaATbAyjq7pD5I0"/>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">张三</p>
+<p class="text-xs text-slate-500">test01@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">2023-10-01</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400">192.168.1.1</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider">正常</span>
+</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="text-primary hover:text-primary/80 font-semibold text-sm transition-colors">详情</button>
+<span class="text-slate-200 dark:text-slate-700">|</span>
+<button class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-semibold text-sm transition-colors">重置</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500 dark:text-slate-400">4c9b3f0e</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Stylized pixel art avatar for Li Si" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxWJkJpo8CrNs2s_U4BHcRo3z1r-5-GRrC_tOd_Ebc4KO-rA6ObmQ2zIHm-8HwFmhLHjc2EohMtJjcUGvIxU_XT0aJwzNPEbo415VFpGbqEaVTYeCsJeYnWxvBSTV5Kxzr4XWHDvg8ZZF7bnFB8U1IF5Q1u264hi3_La4Ri4vMrzT72fTgo23Cxr_jTtnRRYp-hxPwqEbaeh3_glbAI90G-K5GtwQlqkISPZ1t4j2DmW9YIFucj3SSU2MS7Ft7-9ArKVL1x3VlfKk"/>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">李四</p>
+<p class="text-xs text-slate-500">user_admin@china.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">2023-11-15</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400">124.20.55.12</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider">正常</span>
+</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="text-primary hover:text-primary/80 font-semibold text-sm transition-colors">详情</button>
+<span class="text-slate-200 dark:text-slate-700">|</span>
+<button class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-semibold text-sm transition-colors">重置</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500 dark:text-slate-400">a1b2c3d4</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Stylized pixel art avatar for Wang Wu" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuRIE4ZzGid4dOHRFtwCeu41dxsEBCueKXOGzWhVrC90a7YPkiLUPTKI-zqiULm4EW8OJLoBdDy4GWKFVgF6C5M4L6CThT28ErAq1b72QEbw0Y8za8S9V_asY0MDXAwraHRIbOxSQpUBHDoO65eOWA5XiCcyaejVPTkRR6EVZ19f8NxQpUz8DpIlE5pHMK29riYe3BIV44q72kFrmxL0eZpOReWVEzLasUrRqlCK0sgrQUnV2qBdzJmtVTCq_GDQ5DNdhem0tevhY"/>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">王五</p>
+<p class="text-xs text-slate-500">dev_manager@qq.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">2024-01-20</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400">210.33.102.8</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold uppercase tracking-wider">待验证</span>
+</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="text-primary hover:text-primary/80 font-semibold text-sm transition-colors">详情</button>
+<span class="text-slate-200 dark:text-slate-700">|</span>
+<button class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-semibold text-sm transition-colors">重置</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-500 dark:text-slate-400">e5f6g7h8</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Stylized pixel art avatar for Zhao Liu" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOyN0wlg3fCuyzqXUVjXgRYyXcdVoj5MpaQD4qP_IK6X5Hhm98xZ8DxcLe9bLmWKRwFQj-VPQHnsYc7MftWsB9KELGNK-UBN_cfCvzBQc6IIXs6suMsHixevjqwPU2MPcKyqsukDLoJL6m-vdZ56Gu8kDnVmMKxzGQAil_G7iYzNLf-p49XsVzS8HPgDC6UiWWks_lJsGisDSs6Dw8NV87cHwTBsexZhUBTopsl8nPwPAK7OQycDmplaR-PSuL4JPs2cdHXFttvc4"/>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">赵六</p>
+<p class="text-xs text-slate-500">zhao_liu@outlook.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">2024-02-11</td>
+<td class="px-6 py-4 text-sm font-mono text-slate-600 dark:text-slate-400">58.21.3.142</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 text-[10px] font-bold uppercase tracking-wider">禁用</span>
+</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="text-primary hover:text-primary/80 font-semibold text-sm transition-colors">详情</button>
+<span class="text-slate-200 dark:text-slate-700">|</span>
+<button class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-semibold text-sm transition-colors">重置</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                    显示第 <span class="font-semibold text-slate-900 dark:text-white">1</span> 到 <span class="font-semibold text-slate-900 dark:text-white">10</span> 条，共 <span class="font-semibold text-slate-900 dark:text-white">1,248</span> 条用户
+                </p>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-semibold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-white dark:hover:bg-slate-700 transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-white dark:hover:bg-slate-700 transition-colors">3</button>
+<span class="px-1 text-slate-400">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-white dark:hover:bg-slate-700 transition-colors">125</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-6 px-12 text-center text-sm text-slate-500">
+        © 2024 用户管理后台系统. 保留所有权利.
+    </footer>
+</div>
+</body></html>

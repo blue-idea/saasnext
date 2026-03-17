@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#165DFF",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1523",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "system-ui", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+<span class="material-symbols-outlined text-2xl" style="">layers</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white" style="">SaaS 控制台</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold text-primary" href="#" style="">控制面板</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#" style="">我的订单</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#" style="">我的积分</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#" style="">设置</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg" style="">search</span>
+<input class="h-10 w-64 rounded-lg border-none bg-slate-100 dark:bg-slate-800 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20" placeholder="搜索资源..." type="text">
+</div>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400" style="">
+<span class="material-symbols-outlined" style="">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 p-0.5">
+<img alt="User Avatar" class="h-full w-full rounded-full object-cover" data-alt="User profile avatar circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuArnmxRpK67xFcb7rSV2PqHqgBgeR8bZFQWZoUKB2t8ASjCOtLhfu1GrtedixouiaoayAbVP-wvEWDXBPH9Uxvu3U8Pf0AiQOg6zWQqW58Z5qjF1k9NHQx0hftXql4aUBD5lgoYljBZvtVwKloCkli4bXrSPR8md4LGRy4JFeD7IPtz_TDqyJ5YCJIb9sWU7hPVwqyt3p_x12ZKfZNwqOWCLAOALPZl47lSZkURqop0RuxDkKCMi7RSA2qTzAG4wmwzBoIZTBc-E" style="">
+</div>
+</div>
+</div>
+</header>
+<main class="mx-auto w-full max-w-7xl px-6 py-8">
+<!-- Page Header -->
+<div class="mb-10 flex flex-col gap-2">
+<h1 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white" style="">账户概览</h1>
+<p class="text-slate-500 dark:text-slate-400" style="">管理您的额度、订阅计划及交易明细</p>
+</div>
+<!-- Section 1: My Credits -->
+<section class="mb-12">
+<h2 class="mb-6 text-xl font-bold flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-primary" style="">account_balance_wallet</span> 我的额度
+            </h2>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<p class="text-sm font-medium text-slate-500" style="">当前可用额度</p>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-4xl font-bold text-slate-900 dark:text-white" style="">1,250</span>
+<span class="text-sm font-medium text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded" style="">+15%</span>
+</div>
+<div class="mt-6 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+<div class="h-full bg-primary" style="width: 65%;"></div>
+</div>
+</div>
+<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<p class="text-sm font-medium text-slate-500" style="">即将过期额度 (30天内)</p>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-4xl font-bold text-slate-900 dark:text-white" style="">120</span>
+<span class="text-sm font-medium text-rose-600 bg-rose-50 dark:bg-rose-500/10 px-2 py-0.5 rounded" style="">-5%</span>
+</div>
+<p class="mt-6 text-xs text-slate-400 italic" style="">过期日期: 2024-11-15</p>
+</div>
+<div class="rounded-xl bg-primary p-6 text-white shadow-lg shadow-primary/20 flex flex-col justify-between">
+<div>
+<p class="text-sm font-medium opacity-80" style="">已使用额度</p>
+<p class="mt-2 text-3xl font-bold" style="">¥458.00</p>
+</div>
+<button class="mt-4 w-full rounded-lg bg-white/20 py-2 text-sm font-bold hover:bg-white/30 transition-colors" style="">查看明细</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Current Plan -->
+<section class="mb-12">
+<h2 class="mb-6 text-xl font-bold flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-primary" style="">verified</span> 当前计划
+            </h2>
+<div class="rounded-xl border border-primary/30 bg-primary/5 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white">
+<span class="material-symbols-outlined text-4xl" style="">workspace_premium</span>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white" style="">专业版 (Pro Plan)</h3>
+<span class="rounded-full bg-primary px-3 py-1 text-xs font-bold text-white uppercase tracking-wider" style="">Active</span>
+</div>
+<p class="mt-1 text-slate-500" style="">您的订阅将在 2025年5月12日 自动续费</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-2.5 text-sm font-bold shadow-sm" style="">管理订阅</button>
+<button class="rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20" style="">立即升级</button>
+</div>
+</div>
+</section>
+<!-- Section 3: Credit History/Logs -->
+<section class="mb-12">
+<div class="mb-6 flex items-center justify-between">
+<h2 class="text-xl font-bold flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-primary" style="">history</span> 额度流水
+                </h2>
+<button class="text-sm font-bold text-primary" style="">导出 CSV</button>
+</div>
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500" style="">日期</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500" style="">交易类型</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500" style="">详情</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 text-right" style="">变动额度</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400" style="">2023-10-24 14:20</td>
+<td class="px-6 py-4" style="">
+<span class="rounded-full bg-emerald-100 dark:bg-emerald-500/20 px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-400" style="">额度充值</span>
+</td>
+<td class="px-6 py-4 text-sm font-medium" style="">季度订阅赠送</td>
+<td class="px-6 py-4 text-right text-sm font-bold text-emerald-600" style="">+500</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400" style="">2023-10-22 09:15</td>
+<td class="px-6 py-4" style="">
+<span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-bold text-slate-700 dark:text-slate-400" style="">资源消耗</span>
+</td>
+<td class="px-6 py-4 text-sm font-medium" style="">API 接口调用 (Image Gen)</td>
+<td class="px-6 py-4 text-right text-sm font-bold text-rose-600" style="">-12</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400" style="">2023-10-20 18:45</td>
+<td class="px-6 py-4" style="">
+<span class="rounded-full bg-slate-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-bold text-slate-700 dark:text-slate-400" style="">资源消耗</span>
+</td>
+<td class="px-6 py-4 text-sm font-medium" style="">数据处理插件使用</td>
+<td class="px-6 py-4 text-right text-sm font-bold text-rose-600" style="">-45</td>
+</tr>
+</tbody>
+</table>
+<div class="border-t border-slate-100 dark:border-slate-800 px-6 py-4 bg-slate-50/50 dark:bg-slate-800/20 flex justify-center">
+<button class="text-sm font-semibold text-slate-500 hover:text-primary transition-colors" style="">加载更多记录</button>
+</div>
+</div>
+</section>
+<!-- Section 4: Select Subscription Plan -->
+<section class="pb-20">
+<div class="mb-10 text-center">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white" style="">选择更适合您的方案</h2>
+<p class="mt-3 text-slate-500" style="">灵活的定价模式，满足不同规模的业务需求</p>
+</div>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+<!-- Basic Tier -->
+<div class="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm hover:shadow-md transition-shadow">
+<h3 class="text-lg font-bold" style="">基础版</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-4xl font-black" style="">¥0</span>
+<span class="text-slate-500" style="">/月</span>
+</div>
+<p class="mt-4 text-sm text-slate-500 leading-relaxed" style="">适合初创团队和个人开发者，快速开启您的项目。</p>
+<ul class="mt-8 flex flex-col gap-4 flex-grow">
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 1,000 次 API 调用/月
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 基础数据分析
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 社区技术支持
+                        </li>
+</ul>
+<button class="mt-8 w-full rounded-lg border border-primary text-primary px-6 py-3 text-sm font-bold hover:bg-primary/5 transition-colors" style="">当前方案</button>
+</div>
+<!-- Pro Tier (Highlighted) -->
+<div class="relative flex flex-col rounded-2xl border-2 border-primary bg-white dark:bg-slate-900 p-8 shadow-xl">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-black text-white uppercase" style="">最受欢迎</div>
+<h3 class="text-lg font-bold" style="">专业版</h3>
+<div class="mt-4 flex items-baseline gap-1 text-primary">
+<span class="text-4xl font-black" style="">¥199</span>
+<span class="opacity-80" style="">/月</span>
+</div>
+<p class="mt-4 text-sm text-slate-500 leading-relaxed" style="">专为成长中的企业打造，提供更多资源和高级功能。</p>
+<ul class="mt-8 flex flex-col gap-4 flex-grow">
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 50,000 次 API 调用/月
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 实时数据仪表盘
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 优先工单支持 (4小时响应)
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 多团队协作管理
+                        </li>
+</ul>
+<button class="mt-8 w-full rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors" style="">立即购买</button>
+</div>
+<!-- Enterprise Tier -->
+<div class="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm hover:shadow-md transition-shadow">
+<h3 class="text-lg font-bold" style="">企业版</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-4xl font-black" style="">定制</span>
+</div>
+<p class="mt-4 text-sm text-slate-500 leading-relaxed" style="">为大型组织量身定制的顶级方案，无上限扩展。</p>
+<ul class="mt-8 flex flex-col gap-4 flex-grow">
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 无限制 API 调用
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 专属解决方案经理
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> SLA 99.99% 保障
+                        </li>
+<li class="flex items-center gap-3 text-sm" style="">
+<span class="material-symbols-outlined text-primary text-sm" style="">check_circle</span> 独立服务器部署
+                        </li>
+</ul>
+<button class="mt-8 w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3 text-sm font-bold hover:border-primary hover:text-primary transition-colors" style="">联系销售</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Simple Footer -->
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8">
+<div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500" style="">© 2024 SaaS Platform Inc. 保留所有权利</p>
+<div class="flex gap-6">
+<a class="text-xs font-medium text-slate-400 hover:text-primary" href="#" style="">服务条款</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary" href="#" style="">隐私政策</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary" href="#" style="">帮助中心</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

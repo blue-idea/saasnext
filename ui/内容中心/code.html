@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#165DFF",
+              "background-light": "#f5f6f8",
+              "background-dark": "#0f1523",
+            },
+            fontFamily: {
+              "display": ["Inter", "system-ui", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>内容中心 - SaaS Post Center</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header / TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 lg:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">内容中心</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary text-sm font-semibold leading-normal border-b-2 border-primary pb-1" href="#">文章</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">教程</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">公告</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">资源库</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="hidden lg:flex gap-2">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="User avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeORgrA3-btLBwXdXeeOkh1NFW5-1Q4lSZt6c1cC0RKCfKGlY9DJDJbuY9Jk_z5D6jfuYYaCfSe5qJiee3rI2d3d7plAxhIkjY6OtfcLQuqxP9hfDNRAQVF-7L80a1Ujn1aPMUkSCiVfAtEYV7VvSN9r7Rq-hTiTHJUHQU9VyO88pud6hQaIjBi7a5nB3JlUFApyeIG0GaaMsxNliBCPW3-eu6BDFRLsNSP53R3IqKL3N4G0piaWazYaaJhGdKxQzRdkk-km4S0w0"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center">
+<div class="w-full max-w-[1200px] px-4 lg:px-10 py-8">
+<!-- Search Section -->
+<div class="mb-8">
+<div class="flex flex-col gap-4">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">探索我们的知识库</h1>
+<p class="text-slate-600 dark:text-slate-400">获取最新的行业洞察、产品更新和技术指南。</p>
+<div class="mt-4">
+<label class="relative flex flex-col w-full max-w-2xl">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary text-slate-900 dark:text-white placeholder:text-slate-400 shadow-sm" placeholder="搜索文章、教程或关键词..." type="text"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Filters Section -->
+<div class="flex flex-wrap items-center gap-3 mb-8 border-b border-slate-200 dark:border-slate-800 pb-6">
+<span class="text-sm font-semibold text-slate-500 mr-2 uppercase tracking-wider">语言筛选:</span>
+<button class="flex h-9 items-center justify-center gap-2 rounded-full bg-primary text-white px-5 text-sm font-medium transition-all shadow-md shadow-primary/20">
+<span>全部语言</span>
+</button>
+<button class="flex h-9 items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-5 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>简体中文</span>
+</button>
+<button class="flex h-9 items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-5 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>English</span>
+</button>
+<button class="flex h-9 items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-5 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>日本語</span>
+</button>
+<button class="flex h-9 items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-5 text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>한국어</span>
+</button>
+</div>
+<!-- Article Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Article Card 1 -->
+<article class="flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group">
+<div class="aspect-video w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Data analytics dashboard interface visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrLixurPLExXMDFZgcUD8e3UvXFDzBI8PU-6mPtD2n8xDYBhwJsB_UFF6SgeNFa9LRDTw0cc8m5pw_7mdc0pgtlVHGSLumc_651quufcX_y918TdhxH34FPsIjZwbLwR5oLP7jeFB46C_76S7Kcci4RHNK0My7r1WYnnD8QL4U7YzVFDpSLFBlOb3Y2UQYYJm_lv3TC-rTdgnewh8K28ExikgmbWC8ZYgjbfhUdyBxnhKWvcunlT8PojP9aRRqauzrzUhEVbtG-Dw"/>
+<div class="absolute top-3 left-3">
+<span class="bg-primary/90 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">趋势分析</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-snug">如何优化 SaaS 产品的工作流以提升转化率</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                                探索提升团队协作效率的最佳实践，从用户注册到留存的每一个环节，深度解析如何利用自动化工具简化复杂流程...
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of author Zhang San" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwSG3KBTEW-j3ttTIU2MVg0Za2iTX9EUrmmTfiAPD3ApBr_5pdZSxSEVaJT28AFi8sP8l5udJ7aLH-JOMuUUPcMsR9vPCED5IP-YhAF8ohdTDczJQTPpxi9qSiLk7e7Nfiv1lpvYowndnPvI1yrsURQ-48ML396fWJAyIuBLF3R0z2ccGmCXUFr4n96WGlEnbH2yZLDdGed8VZkYYsgjq5iEe5jIhi4EWnZBSDowwYDBSFRqN9NWWRFR4GQf_OHQcJAkNgJS8Jklw"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-200">张三</span>
+<span class="text-xs text-slate-500">产品顾问</span>
+</div>
+</div>
+<time class="text-xs text-slate-400 font-medium">2023-10-25</time>
+</div>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group">
+<div class="aspect-video w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Blue glowing digital network connections background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA67rVa4UdRMz1ejd9uoq45GI4_yymp5l3cgAqiQWEL_GWrnq_fMr0gyYGG7tziFPRa6CY7r4kb-7q9ZjnNHP3TlwvznFQzYsB8339w0cLFdu9KUPvXQbM7ptKWDa_ehW2fQThjhyT_c7BFjW_vjxPtRpRCEKXs-57R8MnEhiHyFuhoiqYsbUEF-R9nLCQTcc4V09f2QsVMvBdRxRZO22H7_uKM5GO_tq-q_bIVY5kdNY58uZ1dLzPiWMTwapnEJBh6HLA93fZ0qws"/>
+<div class="absolute top-3 left-3">
+<span class="bg-indigo-500/90 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">架构</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-snug">2024年云计算趋势分析：云原生的未来</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                                深入探讨云原生架构的未来演进方向，Serverless 与边缘计算的融合将如何重塑我们的开发方式。
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of author Li Si" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_NbM9fXjKmjEOyxmtTtBSWD1LoVmlibXHD8WHSaXhhPAIQYv2DWm31Hs5ct3t3vT6kRZuDUXFRPSOplNCCaCrgLz3mXcV0FWw_9evhBcCgm2H2gRl3a4oewDi4Cf3cGbg3SaUHagGUG5gsmPvIC2dssejCUY4D4QIiHCiAJ10OsKzuMFyjc4aV49nmDbk0sWuiihlyVjgIi4oeGGLCidEPzWFFQG1wDlhqxRvX6LBK1iTPpvJub4VRVt9DMzAoZKrejrMMb3mIjo"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-200">李四</span>
+<span class="text-xs text-slate-500">架构师</span>
+</div>
+</div>
+<time class="text-xs text-slate-400 font-medium">2023-10-24</time>
+</div>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group">
+<div class="aspect-video w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Financial data charts on a screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzKDiifFIQmHwyFsHCKMCseYP9_gQcPGjBOb01OMLfYWelVuPHpFiR5Hg037mtIxm2NKhXvPnRHJLQD6RZdJBeigfZVQs8E3AaF8kcRIVO-gBUgQ1x12Wi6__1--j68ksmNui69818LR42uFAD54258mSuaUwzoz_3n1SaQll6gadlpayUnarNhVFk7KnVkYcXfAXNVOFiku9k0EgxfS0rwGp0O_aDG_oaxS4QNjp7MxfvASeb9_TJJuJc_5YI68ei_sPSZ49AH4c"/>
+<div class="absolute top-3 left-3">
+<span class="bg-emerald-500/90 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">最佳实践</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-snug">构建高性能的分布式系统：处理海量请求</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                                处理海量数据请求的核心架构设计思路，从缓存策略到负载均衡，全面解析分布式系统的稳定性挑战。
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of author Wang Wu" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo-SCpG7nginQVT1FfqB-m4pI7YpAXJILWrzgmT1g37KOGTC1LpYuQ603PpwQ6E6seTuhm3o8ySrcHcHZMHPVz8O80T2i7_pwLsYSBIJOjQn3407vrxhNI_zftKKUuYwgVG_KYnsJkt1VExWtwk8grpE9_bF3Huq89T_jEgYsHNj-EG9KkjQyJWaZiO6p4p-nihO8cbd3TNJcaJyeXFbdMXBUvqkMXeeFXrngxRKzDPmsOTOjdTJiOCaF8zKc7O-g8w5OUe7JLwwE"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-200">王五</span>
+<span class="text-xs text-slate-500">后端工程师</span>
+</div>
+</div>
+<time class="text-xs text-slate-400 font-medium">2023-10-23</time>
+</div>
+</div>
+</article>
+<!-- Article Card 4 -->
+<article class="flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group">
+<div class="aspect-video w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Clean and modern desk setup with laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWlKBimyjR3VoPgNX27F0A-x94Fet3FqsDRBuFnH5glG8DFa39o1-SfmdZFFKEL7AJa_0fg_St3bXwMjBQcuEeOJBF_752jEekLrddkFmA4B7utrOta5cUZLSvQF7NDfmuHzx4Ts3bkZgqnP0xvuJNe55VZKEr0zYTN9GcXUXhL6TU6_7I0Mko5COX0mYHhDk1AJSrYr7yeYVNJNJH_ovhwvyK86uW8zTK50F7pbkM_wEH5zIGeSukG8WHHILXZh9dcj7GLmfx85w"/>
+<div class="absolute top-3 left-3">
+<span class="bg-amber-500/90 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">设计</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-snug">用户体验设计的黄金法则：心理学应用</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                                从心理学角度分析用户与界面的交互行为，揭秘为什么某些交互设计更符合人类直觉。
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of author Zhao Liu" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpkYo0mCSLpPis6q9mb2WQ3A6PcoXCiLetEWr9Uige2pk_FIaujA8wz_965wBhTbP-jbYvCJiMbCMNA9McVpHjT7C2RHLV7E6_f-dSU3MHcPTQeqWDFsy9GjfY51dCsvaHuwrFF-7jlKn2-VR06wwRBt1cYq68NtPcQeyPhOJ5hbTG5qxoisoEAi2R_IEmDjNa9ntnYBRjO5aFMGD0N7xUhWlRJ7kikME-r95LZYWzPmbHUJEjKkCqky-dnjSoxaViUx_BqdArkFs"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-200">赵六</span>
+<span class="text-xs text-slate-500">UI/UX 设计师</span>
+</div>
+</div>
+<time class="text-xs text-slate-400 font-medium">2023-10-22</time>
+</div>
+</div>
+</article>
+<!-- Article Card 5 -->
+<article class="flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group">
+<div class="aspect-video w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Team having a brainstorming meeting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRWUywHGCiPjLElFkgTsEnOrBxd3jzGReFLzhOlGHJ2HyaguMhqzp_sFb3wW3IuGcXwCxXN39Ed2wd9Et839RI9aWCh4h3J6QJ6LJOttHlR46qapIzk9UwQBlZOFOVWRVpOvvjfFGavENm6MlNthdG7h_ociloL5MrUMTaGJL5TfpRL3Arv5TmyS7KbqWnBrsT-HuDtoSSOZR19ZS80reAj8l8lpV2qRuZJGM_9mDxuMaA1nhYiM8R6PmipQg2KY_qxRQAV3j9jRA"/>
+<div class="absolute top-3 left-3">
+<span class="bg-rose-500/90 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">管理</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-snug">敏捷开发中的沟通陷阱与解决方案</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                                在快速迭代的环境中，如何保持团队步调一致？本文总结了常见的沟通误区及其实用的改进策略。
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of author Qian Qi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTRkTvXy8rU9pQUe7LF6hRfXZciACueJD0FybrliyExw8pzePz3S9wcS5qp75sgkdFG7SbwbNhrb5IJyVKC7sRHhnDqg95Q3ExaPSo_pY361lyYdvaBmGUxuE9HTZKLOg2VFfLb45lvg1WnYkDEROzF4XaJENKBHNg_5eHupQx8FvtA96jIHsBCF5Y-3Qfz2CbliFqfmcwJENuttd75WeDf_WGC2B5GykRMq05Uzxw6cxXNQnKyzFrlrFAYMAgsi4u9aR5Vd_jZIQ"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-200">钱七</span>
+<span class="text-xs text-slate-500">项目经理</span>
+</div>
+</div>
+<time class="text-xs text-slate-400 font-medium">2023-10-21</time>
+</div>
+</div>
+</article>
+<!-- Article Card 6 -->
+<article class="flex flex-col bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all group">
+<div class="aspect-video w-full overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic cyber security protection visual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRTSzY6QRw2zTmR3CChuQFh3We-h6XK5T7LFSeoOtNiK6h9bWN62OK3xapcaGGJ6o_a4ZEUtBGDSZcEMswYVznE7qjJqjzxj89uv9O29VhhmBtRkaECgar06TDBj2gXiP81UePgZ6S7_XhM9kJVJgPLbv3Q1rerTtxTv5umID9tvQAI4vUNJ4S2Qpw-w7AXKMhPNi2j8_SXkQy2ZQ4GG9YMfffALqDPFg6HKRY0u5FG9ZagbCvyJ984nE8dHQTWIBPvar6fQ9X0iM"/>
+<div class="absolute top-3 left-3">
+<span class="bg-slate-700/90 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">安全</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-snug">企业级应用的安全合规性审计指南</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                                了解 GDPR、SOC2 等国际安全标准的合规要求，以及如何在开发周期中内置安全审计机制。
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of author Sun Ba" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8A-xxKY8EmTuSMSuJRuhhT_Qvml5UsueU2mNCNhdA-D0YdTc1fx42VNl3VsZlxMlUa_i-_D5HptYghITNcY7Q6qYs9KFFIf4D6gOj1rhrXTSDuHP1Up9ThidVGh89mFoNHVzJjKccSsYzN5vEm4-P4P7-gJvsSXkHQmnSbqWCBAZwTOQMJ8UmN81NSy-SM5jCamWkkuGkyXDkIPkb_OIkxs_-qzKqzaaaQE6ZaQi5Yx_dcoTLH9EhN1Zb2AXqk8YjlomDgQKFWHA"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-200">孙八</span>
+<span class="text-xs text-slate-500">安全专家</span>
+</div>
+</div>
+<time class="text-xs text-slate-400 font-medium">2023-10-20</time>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center mt-12 gap-2">
+<a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</a>
+<a class="flex size-10 items-center justify-center rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/20" href="#">1</a>
+<a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">2</a>
+<a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">3</a>
+<span class="flex size-10 items-center justify-center text-slate-400">...</span>
+<a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">10</a>
+<a class="flex size-10 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-10 px-6 lg:px-10">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-6 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">hub</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2024 SaaS 内容中心. 保留所有权利。</p>
+</div>
+<div class="flex gap-6">
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">隐私政策</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">服务条款</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">联系我们</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

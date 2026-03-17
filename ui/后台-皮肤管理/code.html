@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SaaS 后台 - 主题/皮肤管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#145bff",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1523",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">dashboard_customize</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">SaaS Admin</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Statistics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-primary">palette</span>
+<span class="text-sm font-medium">Themes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800 rounded-xl">
+<img class="size-10 rounded-full object-cover" data-alt="User profile avatar male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO3NOMZ5EtF33JsvibY0LEJOfGtOy3h01ydYMaiwd5f3g6QRdav74jRIHrjLxvbh7eoaZTGN4Mybv58cht0zZAM3JahERrYEC8pbWb-tijOp4nLaQzs5e_kMf_xpis-P3NUghhKEGfucyX2CztcdotscOB_Ms1Ep_0FxI5uSfP7Jox-Ii0C1cttMdW_gkwqXxQrdAXSjtQTZ0gK9PNv-rOjGiMMvlqjtNR1UnNhYQL_-S2efIHXn410zSHtxWGfGoNKKl6w8yq2K4"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Alex Chen</p>
+<p class="text-xs text-slate-500 truncate">Administrator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-8 py-4 flex items-center justify-between">
+<div>
+<h2 class="text-xl font-bold">Theme &amp; Appearance</h2>
+<p class="text-sm text-slate-500">Configure your system visual identity and UI preferences</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium">Tenant Branding</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                    Save Changes
+                </button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Top Section: Config & Preview -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Custom Configuration -->
+<div class="xl:col-span-1 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tune</span>
+                        Custom Configuration
+                    </h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Global Primary Color</label>
+<div class="flex items-center gap-3">
+<input class="size-10 rounded border-none bg-transparent cursor-pointer" type="color" value="#165DFF"/>
+<input class="flex-1 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm px-4 h-10" type="text" value="#165DFF"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Border Radius (Global)</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center h-10 rounded border-2 border-primary bg-primary/5 text-primary text-sm font-bold transition-all">
+                                    4px (Sharp)
+                                </button>
+<button class="flex items-center justify-center h-10 rounded-lg border-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold transition-all">
+                                    8px (Modern)
+                                </button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Organization Logo</label>
+<div class="flex items-center gap-4 p-4 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-lg hover:border-primary transition-colors cursor-pointer group">
+<div class="size-12 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-primary/10">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">upload_file</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Replace Logo</p>
+<p class="text-xs text-slate-500">PNG, SVG up to 2MB</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Preview Area -->
+<div class="xl:col-span-2 bg-slate-200 dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-700 relative overflow-hidden group">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.2) 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="p-4 border-b border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 flex items-center gap-2">
+<div class="flex gap-1.5">
+<div class="size-3 rounded-full bg-red-400"></div>
+<div class="size-3 rounded-full bg-yellow-400"></div>
+<div class="size-3 rounded-full bg-green-400"></div>
+</div>
+<span class="text-[10px] text-slate-400 font-mono uppercase tracking-widest ml-4">Real-time Preview Mode</span>
+</div>
+<div class="p-10 flex items-center justify-center h-[360px]">
+<!-- Scaled UI Preview -->
+<div class="w-full max-w-lg bg-white dark:bg-slate-900 rounded-xl shadow-2xl overflow-hidden transform scale-110 border border-slate-200 dark:border-slate-700">
+<div class="h-10 bg-slate-50 dark:bg-slate-800 flex items-center px-4 justify-between border-b border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-3">
+<div class="size-4 bg-primary rounded"></div>
+<div class="w-16 h-2 bg-slate-200 dark:bg-slate-700 rounded"></div>
+</div>
+<div class="flex gap-2">
+<div class="w-8 h-2 bg-slate-200 dark:bg-slate-700 rounded"></div>
+<div class="w-8 h-2 bg-slate-200 dark:bg-slate-700 rounded"></div>
+</div>
+</div>
+<div class="flex h-48">
+<div class="w-20 border-r border-slate-100 dark:border-slate-700 p-3 space-y-2">
+<div class="h-4 bg-primary/10 rounded"></div>
+<div class="h-4 bg-slate-50 dark:bg-slate-800 rounded"></div>
+<div class="h-4 bg-slate-50 dark:bg-slate-800 rounded"></div>
+</div>
+<div class="flex-1 p-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="w-32 h-6 bg-slate-100 dark:bg-slate-800 rounded"></div>
+<button class="bg-primary text-white px-4 py-1.5 rounded-lg text-xs font-bold">New Project</button>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="h-16 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700"></div>
+<div class="h-16 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700"></div>
+<div class="h-16 bg-primary/5 border border-primary/20 rounded-lg flex items-center justify-center">
+<div class="size-6 rounded-full bg-primary/20"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Preset Themes -->
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">category</span>
+                        Preset Themes
+                    </h3>
+<div class="flex gap-2">
+<button class="size-8 rounded flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">grid_view</span>
+</button>
+<button class="size-8 rounded flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">view_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Theme 1: Classic Blue -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border-2 border-primary shadow-xl group cursor-pointer relative">
+<div class="absolute top-2 right-2 bg-primary text-white size-6 rounded-full flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="h-32 relative bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 flex items-center justify-center p-4">
+<div class="w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex shadow-sm">
+<div class="w-1/4 h-full bg-primary/80"></div>
+<div class="flex-1 h-full bg-white dark:bg-slate-900 p-2 space-y-2">
+<div class="h-2 w-1/2 bg-slate-300 dark:bg-slate-600 rounded"></div>
+<div class="h-6 w-full bg-primary/10 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div>
+<p class="font-bold">Classic Blue</p>
+<p class="text-xs text-slate-500 italic">Default active</p>
+</div>
+<span class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-[10px] font-bold text-slate-500 uppercase">Pro</span>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white h-9 rounded-lg text-xs font-bold transition-transform hover:scale-[1.02] active:scale-95">Applied</button>
+<button class="px-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 h-9 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Theme 2: Deep Dark -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm group cursor-pointer transition-all hover:shadow-lg">
+<div class="h-32 relative bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 flex items-center justify-center p-4">
+<div class="w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex shadow-sm">
+<div class="w-1/4 h-full bg-slate-900"></div>
+<div class="flex-1 h-full bg-slate-800 p-2 space-y-2">
+<div class="h-2 w-1/2 bg-slate-600 rounded"></div>
+<div class="h-6 w-full bg-white/5 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div>
+<p class="font-bold">Deep Dark</p>
+<p class="text-xs text-slate-500">Perfect for nocturnal work</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 h-9 rounded-lg text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Apply</button>
+<button class="px-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 h-9 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Theme 3: Vibrant Orange -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm group cursor-pointer transition-all hover:shadow-lg">
+<div class="h-32 relative bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 flex items-center justify-center p-4">
+<div class="w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex shadow-sm">
+<div class="w-1/4 h-full bg-orange-500"></div>
+<div class="flex-1 h-full bg-white dark:bg-slate-900 p-2 space-y-2">
+<div class="h-2 w-1/2 bg-slate-300 dark:bg-slate-600 rounded"></div>
+<div class="h-6 w-full bg-orange-500/10 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div>
+<p class="font-bold">Vibrant Orange</p>
+<p class="text-xs text-slate-500">Creative &amp; High Energy</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 h-9 rounded-lg text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Apply</button>
+<button class="px-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 h-9 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Theme 4: Minimal White -->
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm group cursor-pointer transition-all hover:shadow-lg">
+<div class="h-32 relative bg-slate-100 dark:bg-slate-800">
+<div class="absolute inset-0 flex items-center justify-center p-4">
+<div class="w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex shadow-sm border border-slate-200 dark:border-slate-600">
+<div class="w-1/4 h-full bg-slate-100"></div>
+<div class="flex-1 h-full bg-white dark:bg-slate-900 p-2 space-y-2">
+<div class="h-2 w-1/2 bg-slate-200 dark:bg-slate-600 rounded"></div>
+<div class="h-6 w-full border border-slate-200 dark:border-slate-600 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div>
+<p class="font-bold">Minimal White</p>
+<p class="text-xs text-slate-500">Clean &amp; Focused Design</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 h-9 rounded-lg text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Apply</button>
+<button class="px-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 h-9 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- More settings footer info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+<div class="bg-primary/5 border border-primary/20 p-6 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">info</span>
+<div>
+<h4 class="font-bold mb-1">Theme Inheritance</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Changes made here will affect all users within this organization. Specific module themes can be overridden in their respective settings.</p>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 p-6 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-slate-500 text-3xl">history</span>
+<div>
+<h4 class="font-bold mb-1">Recent Activity</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Last theme change was 2 days ago by Administrator. <a class="text-primary hover:underline" href="#">View History</a></p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

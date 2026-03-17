@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>文章管理系统 - 后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#165DFF",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1523",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header / Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 lg:px-10">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">article</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">文章管理系统</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">person</span>
+<span>管理员 Admin</span>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User profile avatar circle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKu7VU64kzGJmFMVdqInUuIeX8C1t6IAJi-xr83OsoH6u5_UOtliABTR3OvjYagxN-QATU_Sc_t0jC9JnXjnfQIiu5Jiso_9SVQ5k33n-rR3C4jGhHEaJmNfrtPcKAWMsBWkhlIUk9WUUUNk7nb3kQjiUhXpd4walqtUfezYZngEhGAlM6cQbbeI2Msl1qlkgJVi1wOFL1yHueBdHeISb2g6Hf54VAnfrnCQe582580Tm5gbOAw8XAc6NoAyc66X70Y5HtMaczI-g");'></div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Sidebar -->
+<aside class="hidden lg:flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shrink-0">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">仪表盘</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium leading-normal">文章管理</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined">category</span>
+<p class="text-sm font-medium leading-normal">分类目录</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg cursor-pointer transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">系统设置</p>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col gap-1 p-2">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">系统版本</p>
+<p class="text-xs text-slate-500">v1.2.4 Production</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-6 lg:p-10 max-w-[1440px] mx-auto w-full gap-6">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">文章列表</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">查看、筛选并管理您的全站文章内容</p>
+</div>
+<button class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+<span>新建文章</span>
+</button>
+</div>
+<!-- Filters -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">搜索标题</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm" placeholder="输入关键词..." type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">语言 (Locale)</label>
+<select class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm">
+<option value="">全部语言</option>
+<option value="zh">中文 (zh-CN)</option>
+<option value="en">英文 (en-US)</option>
+<option value="jp">日文 (ja-JP)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase">发布状态</label>
+<select class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm">
+<option value="">全部状态</option>
+<option value="online">已上线 (Online)</option>
+<option value="offline">已下线 (Offline)</option>
+<option value="draft">草稿 (Draft)</option>
+</select>
+</div>
+<div class="flex items-end">
+<button class="w-full py-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-semibold transition-colors">
+                                重置筛选
+                            </button>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">文章标题</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Slug</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">语言</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">状态</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">创建时间</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-semibold text-slate-900 dark:text-slate-100">2024年全球科技趋势预测</span>
+<span class="text-xs text-slate-500">作者: 张小明</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 font-mono">tech-trends-2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">zh-CN</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                                            已上线
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">2024-03-15 14:30</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors" title="编辑"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-orange-500 transition-colors" title="下线"><span class="material-symbols-outlined text-xl">visibility_off</span></button>
+<button class="p-2 text-slate-400 hover:text-red-500 transition-colors" title="删除"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-semibold text-slate-900 dark:text-slate-100">Global Economic Update Q1</span>
+<span class="text-xs text-slate-500">作者: Sarah Connor</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 font-mono">economic-update-q1</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">en-US</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+<span class="size-1.5 rounded-full bg-slate-400 mr-1.5"></span>
+                                            草稿
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">2024-03-20 09:12</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors" title="编辑"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-green-500 transition-colors" title="发布"><span class="material-symbols-outlined text-xl">publish</span></button>
+<button class="p-2 text-slate-400 hover:text-red-500 transition-colors" title="删除"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-semibold text-slate-900 dark:text-slate-100">设计系统实战指南</span>
+<span class="text-xs text-slate-500">作者: 李华</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 font-mono">design-system-guide</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">zh-CN</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400">
+<span class="size-1.5 rounded-full bg-amber-500 mr-1.5"></span>
+                                            已下线
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">2024-01-10 18:45</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors" title="编辑"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="p-2 text-slate-400 hover:text-green-500 transition-colors" title="重新上线"><span class="material-symbols-outlined text-xl">visibility</span></button>
+<button class="p-2 text-slate-400 hover:text-red-500 transition-colors" title="删除"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800">
+<p class="text-sm text-slate-500">显示 1 到 10 条，共 124 条文章</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium">上一页</button>
+<button class="px-3 py-1 bg-primary text-white rounded text-sm font-medium">1</button>
+<button class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium">2</button>
+<button class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium">3</button>
+<button class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium">下一页</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</body></html>

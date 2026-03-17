@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#165DFF",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1523",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>产品与计费 - 管理控制台</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Side Navigation -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">cloud_sync</span>
+<h1 class="text-xl font-bold tracking-tight">SaaS Admin</h1>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs">企业级后台管理系统</p>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">仪表盘</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">用户管理</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">产品与计费</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">订单管理</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">系统设置</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">AD</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-medium truncate">管理员</p>
+<p class="text-xs text-slate-500 truncate">admin@company.com</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8">
+<h2 class="text-lg font-bold">产品与计费</h2>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">help_outline</span>
+</div>
+</header>
+<!-- Content Tabs -->
+<div class="px-8 pt-6">
+<div class="flex gap-8 border-b border-slate-200 dark:border-slate-800">
+<button class="pb-4 text-sm font-bold border-b-2 border-primary text-primary">套餐配置</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors">支付渠道</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors flex items-center gap-1">
+                    退款管理
+                    <span class="inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-bold leading-none text-white bg-red-500 rounded-full">3</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8">
+<!-- Header Section with Search/Action -->
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-xl font-bold">套餐方案管理</h3>
+<p class="text-sm text-slate-500">管理面向用户的订阅计划及权益配置</p>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                    新增套餐
+                </button>
+</div>
+<!-- Pricing Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Basic Plan -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">基础版</span>
+<h4 class="text-2xl font-black mt-1">免费</h4>
+</div>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold rounded">STANDARD</span>
+</div>
+<p class="text-sm text-slate-500 mb-6">适合个人开发者进行初步尝试与学习</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">1,000次 API调用 / 月</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">5GB 云端存储空间</span>
+</div>
+<div class="flex items-center gap-3 text-slate-400">
+<span class="material-symbols-outlined text-lg">cancel</span>
+<span class="text-sm">无专属技术支持</span>
+</div>
+<div class="flex items-center gap-3 text-slate-400">
+<span class="material-symbols-outlined text-lg">cancel</span>
+<span class="text-sm">仅限社区支持</span>
+</div>
+</div>
+<button class="w-full py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-colors">
+                        编辑套餐
+                    </button>
+</div>
+<!-- Pro Plan -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border-2 border-primary p-6 flex flex-col shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                        最热门
+                    </div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">专业版</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-3xl font-black">¥199</span>
+<span class="text-sm text-slate-500">/月</span>
+</div>
+</div>
+</div>
+<p class="text-sm text-slate-500 mb-6">适合成长型团队，提供更高性能与容量</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">50,000次 API调用 / 月</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">100GB 云端存储空间</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">7x24 邮件技术支持</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">高级数据分析看板</span>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-md">
+                        编辑套餐
+                    </button>
+</div>
+<!-- Enterprise Plan -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">企业版</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-3xl font-black">¥999</span>
+<span class="text-sm text-slate-500">/月</span>
+</div>
+</div>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold rounded">ULTIMATE</span>
+</div>
+<p class="text-sm text-slate-500 mb-6">为大型机构定制，极速响应与专属部署方案</p>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">无限次 API调用频率</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">1TB 独享存储空间</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">1对1 专属技术支持顾问</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm">SLA 99.99% 服务保障</span>
+</div>
+</div>
+<button class="w-full py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-colors">
+                        编辑套餐
+                    </button>
+</div>
+</div>
+<!-- Payment Methods Section -->
+<div class="mb-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold">支付渠道</h3>
+<button class="text-primary text-sm font-bold hover:underline">添加渠道</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="flex items-center p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
+<div class="w-10 h-10 rounded-lg bg-[#635BFF]/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-[#635BFF]">payments</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Stripe</h5>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">已启用</span>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="flex items-center p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
+<div class="w-10 h-10 rounded-lg bg-[#00A0E9]/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-[#00A0E9]">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Alipay 支付宝</h5>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">已启用</span>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="flex items-center p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
+<div class="w-10 h-10 rounded-lg bg-[#07C160]/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-[#07C160]">qr_code</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">WeChat Pay 微信支付</h5>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-400">未配置</span>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Refund Management Section -->
+<div class="mb-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold">退款申请 (待审核)</h3>
+<a class="text-primary text-sm font-medium" href="#">查看全部</a>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">订单号</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">退款金额</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">申请原因</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">当前状态</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-6 py-4 text-sm font-medium">ORD-20231024-001</td>
+<td class="px-6 py-4 text-sm font-bold">¥199.00</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">套餐购买错误</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                                        待审核
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary text-xs font-bold mr-3 hover:underline">同意退款</button>
+<button class="text-red-500 text-xs font-bold hover:underline">驳回</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium">ORD-20231024-005</td>
+<td class="px-6 py-4 text-sm font-bold">¥999.00</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">重复支付</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                                        待审核
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary text-xs font-bold mr-3 hover:underline">同意退款</button>
+<button class="text-red-500 text-xs font-bold hover:underline">驳回</button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium">ORD-20231023-012</td>
+<td class="px-6 py-4 text-sm font-bold">¥199.00</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">服务不满意</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                                        待审核
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary text-xs font-bold mr-3 hover:underline">同意退款</button>
+<button class="text-red-500 text-xs font-bold hover:underline">驳回</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Invoices Section Quick View -->
+<div class="mb-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold">近期开票记录</h3>
+<button class="flex items-center gap-2 text-primary text-sm font-bold hover:underline">
+<span class="material-symbols-outlined text-sm">download</span>
+                        导出表格
+                    </button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center justify-center min-h-[160px] text-center">
+<span class="material-symbols-outlined text-4xl text-slate-300 mb-2">description</span>
+<p class="text-sm text-slate-500">点击查看全部发票开具历史记录</p>
+<button class="mt-4 text-primary font-bold text-sm">点击进入发票详情页</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

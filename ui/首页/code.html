@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#165DFF",
+                        "accent": "#F59E0B",
+                        "background-light": "#FFFFFF",
+                        "background-subtle": "#F8FAFC",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(22, 93, 255, 0.05) 0%, transparent 70%);
+        }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background-light text-slate-900 font-display selection:bg-primary/10">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="fixed top-0 z-50 w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-md px-6 lg:px-20 py-4">
+<div class="mx-auto flex max-w-7xl items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+<span class="material-symbols-outlined text-white">rocket_launch</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900">Shipany.ai</h2>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">功能</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">文档</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">定价</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">博客</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">登录</button>
+<button class="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        立即开始
+                    </button>
+</div>
+</div>
+</header>
+<main class="flex-1 pt-32">
+<!-- Hero Section -->
+<section class="relative px-6 text-center">
+<div class="absolute inset-0 hero-glow -z-10"></div>
+<div class="mx-auto max-w-4xl">
+<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">NEW: v2.0 现已发布</span>
+</div>
+<h1 class="mb-8 text-5xl font-black tracking-tight text-slate-900 md:text-7xl">
+                        一小时上线你的 <span class="gold-text-gradient">AI 网站</span>
+</h1>
+<p class="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                        专为开发者打造的 AI SaaS 快速开发框架。集成支付、权限、积分与内容管理系统，助你以最快速度实现商业化变现。
+                    </p>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<button class="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white hover:bg-primary/90 transition-all shadow-xl shadow-primary/25">
+                            立即开始 
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-8 py-4 text-base font-bold text-slate-700 hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+                            阅读文档
+                        </button>
+</div>
+</div>
+<!-- Product Preview Card -->
+<div class="mx-auto mt-24 max-w-6xl px-4">
+<div class="relative rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl overflow-hidden">
+<div class="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-primary/5 blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-accent/5 blur-[100px]"></div>
+<div class="glass-panel relative rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+<img class="w-full" data-alt="Modern light mode dashboard interface for AI SaaS management" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb2psKFZoG3jIjtbZn-4wttpI8uzlHS_QhTd9_mbHZvp8DM4vR9WyKqQ869vvCMKUMpk-ChTa2E0T9t3be0D1Z9yFy00k5eBlEgAP8-4Yw6Fo8tg9q5YKP2ubFTHyP1-woU0-fOmS2LR-QFvOfbFIpbkEzvBAHNFgi8AHT5cxvnBVr8Jmo_DnNBSM8qLfXrUtc-3d3fMUCCmrCrPDawxj-rux-SPFu4-5N8wPkvs31dxk8dJgCgB80LXWY6hzssIeBIwp-XdM5jiQ"/>
+<!-- Subtle Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners/Logo Wall -->
+<section class="mt-32 px-6">
+<p class="mb-10 text-center text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+                    已被 500+ 全球开发者部署与信任
+                </p>
+<div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-12 grayscale opacity-60">
+<img class="h-8" data-alt="Partner company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOvv00jo9u-T2qlqRtLP-XXc8daz3hvoCDau-WsWbuoaXuANWp8g6bQZxq8GDx91l-vw-2fVYW68loDhPL-QOWbXsogL2_X_glg-OuNymgzcAp6X17_Z2AdJ8NtQRRnfwW1VeWjInz20u1LADpB3n7psnuh05eXtLsizfgMhz048K1d_bd11NiGeO5GjS0C5TX48vuqGEB1KSOu4VrzGmemyh0XKE7mN_Q5Mysrmq72Vs5q84eVaiXPHT2wHLz8-U62YlT_6W38Po"/>
+<img class="h-8" data-alt="Partner company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPrmLjxHMTm1c_6o7FxnaABDYtBs-0h_mFJN_qz7Jlw7bSeeTSdJ2HbmSsT6dnbAJg24r4eBNdnmoChNGT0pNRf0-glVCkvQq72j9hJCCd5sV71xn4EQOXVG6wuoVxhS2XKAM3FLg6JyD95XoEm-z0tdU3_sZHplJnPOMr3ltvc5VtI2_Flehvsn9S7ydNvZxObX9iSdLjmN-QNG3O51jKRHaK6XlnKg-jyS6Rx0BCBWkT9NHD18VgtaiCee9hvuH3SqYzBuojklE"/>
+<img class="h-8" data-alt="Partner company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRcgim-GSYFRSWvNJaAM0JnTtaP7WQVMnWsSQ-hW70bLP0S54Q0rxbr1S40insr1c4RyIelpmy1jWj5WLcK91zLc0YMKO_9uofQH74Ha9Tqs8eJT1ruPG6qvEmTIr6exYbnVdW2wV35Vh2EpZ_Wzenaj1e39Ui_Vss5kniLfeHyc8QYutBZxrMIhpi2FORlMWRlgKK-QMwkTfLlMuLfkMiyiaPbCdiiim8pJobNoLevnU4M7orNfRbVm2sraXwvikuG6gLXgh_8OQ"/>
+<img class="h-8" data-alt="Partner company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZbkqEC2Nr8oJ0gaLa2R-DaW4y8pxmlmI0Yi22Hbrf1Z1aRrOf6_MhtYZSKwK_mpxS5esjrESf3gIaPLGX3t3Pefis-IEM5uAyHGJkpvLV_qdheMJDLJ7oPhst75ZTXk3jfDCQ-Pif6dUQKSPwEc3qduDmbCR4t7HTN1jOtc9tHGo9Q5Rw-amr1M4S55kGRl6zAyTlcn54xi5Sh4jdiWRzwMGFsJcXQAYZ866qE3aiHJ08nb2oVxbuyVfDxsG5F7mHUqGpNm1pFVA"/>
+<img class="h-8" data-alt="Partner company logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzp-1dZXgV55yCFGTJwaTtRPJj17WDibFID2ZIEynbYjfyWnjlvATriIhW3-UMQWfB8oXf2JhUWgNF29UygZdoD9TNXNRcDkWFVVgeVVshDqBb9wDoyXvH1f37ZijAXVGy7haM-nAScmXBLH-LaCi4kPvg49_OutkPnI_RjM-tFbwmK5u0j7JaOOVLe5zOU2Gbqn99Vxr1bQNr7WyLjUazvewJXbPm8Np-HnEyqOkAMeSUXQoYdHhdG1yUPXNAokmkV-uE-4qSBSQ"/>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="mx-auto max-w-7xl px-6 py-40">
+<div class="mb-20 text-center">
+<h2 class="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">全栈核心功能模块</h2>
+<p class="text-slate-600">开箱即用的功能，让你专注于核心 AI 业务逻辑</p>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<!-- Landing Page -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">dashboard</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">着陆页</h3>
+<p class="text-sm leading-relaxed text-slate-500">高性能、响应式的现代化落地页，专为高转化率优化。</p>
+</div>
+<!-- Blog -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">article</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">博客系统</h3>
+<p class="text-sm leading-relaxed text-slate-500">内置 SEO 优化与 MDX 支持，轻松管理内容营销。</p>
+</div>
+<!-- Documentation -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">文档中心</h3>
+<p class="text-sm leading-relaxed text-slate-500">自动化 API 文档与用户指南生成，提升开发者体验。</p>
+</div>
+<!-- AI Integration -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">AI 集成</h3>
+<p class="text-sm leading-relaxed text-slate-500">预置 OpenAI, Anthropic 等大模型流式响应接口。</p>
+</div>
+<!-- Payments -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">支付系统</h3>
+<p class="text-sm leading-relaxed text-slate-500">Stripe, LemonSqueezy 全方位集成，支持订阅与单购。</p>
+</div>
+<!-- Billing -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">账单中心</h3>
+<p class="text-sm leading-relaxed text-slate-500">自动化发票生成、账期管理及使用量统计报表。</p>
+</div>
+<!-- Credits/Points -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">monetization_on</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">积分激励</h3>
+<p class="text-sm leading-relaxed text-slate-500">灵活的虚拟点数系统，支持充值、消耗与推广返现。</p>
+</div>
+<!-- Permissions/RBAC -->
+<div class="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-primary/20 hover:shadow-xl hover:shadow-slate-200/50 transition-all">
+<div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<h3 class="mb-2 text-lg font-bold text-slate-900">权限控制</h3>
+<p class="text-sm leading-relaxed text-slate-500">工业级 RBAC 权限体系，支持团队协作与细粒度控制。</p>
+</div>
+</div>
+<!-- Bottom Feature Link -->
+<div class="mt-20 flex justify-center">
+<button class="flex items-center gap-2 text-slate-600 hover:text-primary transition-colors font-medium">
+                        查看全部 12+ 个核心模块
+                        <span class="material-symbols-outlined text-sm">trending_flat</span>
+</button>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-6 py-20 pb-40">
+<div class="mx-auto max-w-5xl rounded-3xl bg-primary/5 border border-primary/10 p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+<h2 class="mb-6 text-3xl font-bold text-slate-900 md:text-5xl">准备好开启你的 AI 之旅了吗？</h2>
+<p class="mx-auto mb-10 max-w-xl text-slate-600">
+                        加入 2,000+ 位正在使用 Shipany.ai 快速上线产品的创业者。
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto rounded-xl bg-primary px-10 py-4 text-lg font-bold text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                            现在开始部署
+                        </button>
+<button class="w-full sm:w-auto rounded-xl border border-slate-200 bg-white px-10 py-4 text-lg font-bold text-slate-700 hover:bg-slate-50 transition-all">
+                            联系技术支持
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 bg-background-subtle px-6 py-20">
+<div class="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+<div class="col-span-2 lg:col-span-2">
+<div class="mb-6 flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary">
+<span class="material-symbols-outlined text-white text-sm">rocket_launch</span>
+</div>
+<h2 class="text-lg font-bold text-slate-900">Shipany.ai</h2>
+</div>
+<p class="max-w-xs text-sm leading-relaxed text-slate-500">
+                        致力于为全球开发者提供最快、最优雅的 AI SaaS 启动方案。代码至上，效率优先。
+                    </p>
+</div>
+<div>
+<h4 class="mb-6 text-sm font-bold uppercase tracking-wider text-slate-900">产品</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">核心框架</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">组件库</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">模版商店</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">更新日志</a></li>
+</ul>
+</div>
+<div>
+<h4 class="mb-6 text-sm font-bold uppercase tracking-wider text-slate-900">支持</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">开发文档</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">社区论坛</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">GitHub</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">常见问题</a></li>
+</ul>
+</div>
+<div>
+<h4 class="mb-6 text-sm font-bold uppercase tracking-wider text-slate-900">法律</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">隐私政策</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">服务条款</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie 声明</a></li>
+</ul>
+</div>
+</div>
+<div class="mx-auto mt-20 max-w-7xl border-t border-slate-200 pt-10 text-center md:text-left">
+<p class="text-xs text-slate-400">
+                    © 2024 Shipany.ai. 保留所有权利。
+                </p>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#165DFF",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0f1523",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>用户注册 - SaaS平台</title>
+</head>
+<body class="bg-background-light font-display text-slate-900 antialiased">
+<div class="min-h-screen flex flex-col">
+<!-- Navigation Bar -->
+<header class="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+<div class="flex items-center gap-2">
+<div class="text-primary size-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<h2 class="text-slate-900 text-xl font-bold leading-tight tracking-tight">SaaS平台</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-slate-500 text-sm hidden sm:inline">已有账号？</span>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">立即登录</a>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex items-center justify-center p-6 sm:p-12">
+<div class="w-full max-w-[480px] bg-white rounded-xl shadow-xl shadow-slate-200/50 p-8 sm:p-10 border border-slate-100">
+<!-- Title Section -->
+<div class="mb-8">
+<h1 class="text-slate-900 text-3xl font-black leading-tight tracking-tight mb-2">用户注册</h1>
+<p class="text-slate-500 text-base">创建您的账户以开启高效管理体验</p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-5">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-slate-700 text-sm font-semibold">邮箱地址</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400 text-slate-900" placeholder="请输入您的邮箱" type="email"/>
+</div>
+</div>
+<!-- Verification Code Field -->
+<div class="space-y-2">
+<label class="block text-slate-700 text-sm font-semibold">验证码</label>
+<div class="flex gap-3">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">verified_user</span>
+<input class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400 text-slate-900" placeholder="请输入验证码" type="text"/>
+</div>
+<button class="min-w-[120px] px-4 py-3 bg-primary/10 text-primary font-semibold rounded-lg hover:bg-primary/20 transition-colors text-sm" type="button">
+                                获取验证码
+                            </button>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="block text-slate-700 text-sm font-semibold">登录密码</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock</span>
+<input class="w-full pl-10 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400 text-slate-900" placeholder="请输入密码" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div class="space-y-2">
+<label class="block text-slate-700 text-sm font-semibold">确认密码</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock_reset</span>
+<input class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400 text-slate-900" placeholder="请再次输入密码" type="password"/>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 size-4 rounded border-slate-300 text-primary focus:ring-primary" id="terms" type="checkbox"/>
+<label class="text-sm text-slate-500 leading-relaxed" for="terms">
+                            我已阅读并同意 <a class="text-primary hover:underline" href="#">《服务协议》</a> 和 <a class="text-primary hover:underline" href="#">《隐私政策》</a>
+</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg shadow-lg shadow-primary/25 transition-all transform active:scale-[0.98] mt-2" type="submit">
+                        注册账号
+                    </button>
+</form>
+<!-- Social Login Divider -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-4 bg-white text-slate-400">其他注册方式</span>
+</div>
+</div>
+<!-- Social Icons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+<img alt="WeChat" class="size-5" data-alt="WeChat logo for social login" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUGtykAwOl1JZREPrpvlDCro8dJtsVuYZo8GbiGHwwKj3-L4E4rp1vs87S5M-o_Oxrdy7yVslNfRbWzX3bHuKqgS579CKKretHsNt374HM-EwZ5aFkMNDvHPTMuMMyiWCNFnwJhhcWj9sv8zcy0bCqb-OLm39ntCVrjlcavWjrEVBVgtY5UxEqXNFvRmkrWgCY2sl2GiunRIyVISMRlekOY1t9KRDRwC3x-Q8zAkQZOO9KcUjOqrzL9ouPfgBZZo8PT1mxGv16GFk"/>
+<span class="text-sm font-medium text-slate-600">微信</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
+<img alt="Github" class="size-5" data-alt="Github logo for social login" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9DKOeZpmMklPmnDJDzs2bdKOWem0-K7jyylwzFEls46hozfrW_xg3QOlFECxLuWMg6UR0ILtR2RUhv9EEaufvVb2szH4J7IbFWH2LLgUxlxbJRpYXx7NKUBHopomUISdZ2o5gy5K47vOavv8m4-q_90PXc2WAcxKRRMGeSyjpJx2CGSALWKoan5bK589SknQKay1NSCCSujcmw0_OrGImHDntBYaB2kfQmdAtPxXugFO241t-ALsD3jyHkAYUkPS1tKAW6kPofUw"/>
+<span class="text-sm font-medium text-slate-600">Github</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="py-6 text-center text-slate-400 text-sm">
+            © 2024 SaaS平台 版权所有.
+        </footer>
+</div>
+</body></html>
