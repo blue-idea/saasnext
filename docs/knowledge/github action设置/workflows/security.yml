@@ -2,11 +2,11 @@ name: Security Audit
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   schedule:
-    - cron: '0 0 * * 0' # 每周日运行
+    - cron: "0 0 * * 0" # 每周日运行
 
 jobs:
   # 1. 依赖审计与 Snyk 扫描
@@ -18,8 +18,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 24
+          cache: "npm"
 
       - run: npm ci
 
@@ -98,10 +98,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 24
+          cache: "npm"
       - run: npm ci
-      
+
       # 检查 .env 文件未被提交
       - name: Check .env not committed
         run: |
